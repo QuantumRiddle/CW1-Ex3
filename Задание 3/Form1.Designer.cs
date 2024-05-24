@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,8 +48,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // checkBox1
@@ -80,6 +77,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // radioButton1
             // 
@@ -152,6 +150,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Сведения о разработчике";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -208,6 +207,7 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 15;
             this.textBox1.Text = "Фамилия";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -235,30 +235,17 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(252, 323);
+            this.panel1.Location = new System.Drawing.Point(252, 290);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.Size = new System.Drawing.Size(260, 148);
             this.panel1.TabIndex = 19;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(604, 345);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "label7";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -307,8 +294,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Panel panel1;
     }
 }

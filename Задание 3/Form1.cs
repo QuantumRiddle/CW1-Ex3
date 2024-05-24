@@ -7,15 +7,15 @@ namespace Задание_3
 {
     public partial class Form1 : Form
     {
-        
+
+        private DateTime startTime;
 
         public Form1()
         {
             InitializeComponent();
             panel1.BackColor = Color.Black;
-            vScrollBar1.Value = 0;
-            vScrollBar2.Value = 0;
-            vScrollBar3.Value = 0;
+            startTime = DateTime.Now;
+
         }
        
 
@@ -23,53 +23,34 @@ namespace Задание_3
         {
             Graphics g = e.Graphics;
 
-            Color color = Color.FromArgb(255, vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
+            Color color = Color.FromArgb(vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
 
-           //Brush myBrush = new SolidBrush(color);
+           Brush myBrush = new SolidBrush(color);
 
             if (radioButton1.Checked)
                 if (checkBox1.Checked)
                 {
-                    e.Graphics.DrawRectangle(Pens.Black, 50, 50, 100, 25);
-                    //e.Graphics.FillRectangle(myBrush, 50, 50, 100, 25);
+                   g.DrawRectangle(Pens.Black, 50, 50, 100, 25);
+                   g.FillRectangle(myBrush, 50, 50, 100, 25);
                 }
-            else e.Graphics.DrawRectangle(Pens.Black, 50, 50, 100, 25);
+            else g.DrawRectangle(Pens.Black, 50, 50, 100, 25);
             
             if (radioButton2.Checked)
                 if (checkBox1.Checked)
                 {
-                    e.Graphics.DrawEllipse(Pens.Black, 50, 50, 100, 25);
-                    //e.Graphics.FillEllipse(myBrush, 50, 50, 100, 25);
+                    g.DrawEllipse(Pens.Black, 50, 50, 50, 50);
+                    g.FillEllipse(myBrush, 50, 50, 50, 50);
                 }
-                else e.Graphics.DrawEllipse(Pens.Black, 50, 50, 100, 25);
+               else g.DrawEllipse(Pens.Black, 50, 50, 50, 50);
             
             if (radioButton3.Checked)
                 if (checkBox1.Checked)
                 {
-                    e.Graphics.DrawEllipse(Pens.Black, 50, 50, 50, 50);
-                    //e.Graphics.FillEllipse(myBrush, 50, 50, 50, 50);
+                    g.DrawEllipse(Pens.Black, 50, 50, 100, 55);
+                    g.FillEllipse(myBrush, 50, 50, 100, 55);
                 }
-                else e.Graphics.DrawEllipse(Pens.Black, 50, 50, 50,50);
+                else g.DrawEllipse(Pens.Black, 50, 50, 100, 55);
 
-        }
-
-
-
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            panel1.Invalidate();
-            
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            panel1.Invalidate();
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            panel1.Invalidate();
         }
 
 
@@ -86,6 +67,44 @@ namespace Задание_3
         private void vScrollBar3_Scroll(object sender, ScrollEventArgs e)
         {
             panel1.BackColor = Color.FromArgb(vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Безденежных Артем Сергеевич группа 24101");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            
+            form2.SetText(textBox1.Text, textBox2.Text, textBox3.Text);
+
+            form2.SetGroup(textBox4.Text);
+
+            form2.SetTimer(startTime.ToString("T"));
+
+            form2.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
