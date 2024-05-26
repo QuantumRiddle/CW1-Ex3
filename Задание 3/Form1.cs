@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -13,7 +12,7 @@ namespace Задание_3
         public Form1()
         {
             InitializeComponent();
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = Color.Empty;
             startTime = DateTime.Now;
 
         }
@@ -27,46 +26,44 @@ namespace Задание_3
 
            Brush myBrush = new SolidBrush(color);
 
-            if (radioButton1.Checked)
-                if (checkBox1.Checked)
+        
+                if (radioButton1.Checked)
                 {
-                   g.DrawRectangle(Pens.Black, 50, 50, 100, 25);
-                   g.FillRectangle(myBrush, 50, 50, 100, 25);
+                    
+                    g.DrawRectangle(Pens.Black, 50, 50, 150, 80);
+                    if (checkBox1.Checked) { g.FillRectangle(myBrush, 50, 50, 150, 80); }
                 }
-            else g.DrawRectangle(Pens.Black, 50, 50, 100, 25);
-            
-            if (radioButton2.Checked)
-                if (checkBox1.Checked)
+
+
+                if (radioButton2.Checked)
                 {
                     g.DrawEllipse(Pens.Black, 50, 50, 50, 50);
-                    g.FillEllipse(myBrush, 50, 50, 50, 50);
+                if (checkBox1.Checked ) { g.FillEllipse(myBrush, 50, 50, 50, 50); }
                 }
-               else g.DrawEllipse(Pens.Black, 50, 50, 50, 50);
-            
-            if (radioButton3.Checked)
-                if (checkBox1.Checked)
+
+                if (radioButton3.Checked)
                 {
                     g.DrawEllipse(Pens.Black, 50, 50, 100, 55);
-                    g.FillEllipse(myBrush, 50, 50, 100, 55);
+                    if (checkBox1.Checked) { g.FillEllipse(myBrush, 50, 50, 100, 55); }
                 }
-                else g.DrawEllipse(Pens.Black, 50, 50, 100, 55);
+            
 
         }
 
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
+            panel1.Invalidate();
         }
 
         private void vScrollBar2_Scroll(object sender, ScrollEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
+            panel1.Invalidate();
         }
 
         private void vScrollBar3_Scroll(object sender, ScrollEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(vScrollBar1.Value, vScrollBar2.Value, vScrollBar3.Value);
+            panel1.Invalidate();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -102,9 +99,10 @@ namespace Задание_3
             form2.ShowDialog();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
         }
     }
 }
